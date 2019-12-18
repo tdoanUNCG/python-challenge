@@ -43,4 +43,11 @@ with open (csvPath, newline="") as csvFile:
     print(f"Average Change: ${round((data[rowCount-1]-data[0])/(rowCount-1),2)}")
     print(f"Greatest Increase in Profits: {months[maxIndex + 1]} ${max(changeMonthOverMonth)}")
     print(f"Greatest Decrease in Profits: {months[minIndex + 1]} ${min(changeMonthOverMonth)}")
-    #Add numbers in profit/loss column - header
+
+    file = open("results.txt","w")
+    print(f"Total Months: {rowCount}",file=file)
+    print(f"Total Months: ${totalProfitLoss}",file=file)
+    print(f"Average Change: ${round((data[rowCount-1]-data[0])/(rowCount-1),2)}",file=file)
+    print(f"Greatest Increase in Profits: {months[maxIndex + 1]} ${max(changeMonthOverMonth)}",file=file)
+    print(f"Greatest Decrease in Profits: {months[minIndex + 1]} ${min(changeMonthOverMonth)}",file=file)
+    file.close()
